@@ -4,3 +4,5 @@ booking = Booking.new(start_date: "12/06/2017", end_date: "16/06/2017", guests: 
 
 
 ederik =  User.new(first_name: "albert", last_name: "montolio", email: "email@email.com", password: "1234567")
+
+fucker =  User.new(first_name: "albert", last_name: "montolio", email: "email@email.com", password: "1234567")
