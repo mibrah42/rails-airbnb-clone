@@ -20,13 +20,6 @@
 
   <% @flats.each do |flat| %>
 
-    <h2><%= flat.title %></h2>
-
-  <% end %>
-
-  <% @flats.each do |flat| %>
-  <h2><%=  flat.title %></h2>
-
      <li class="list-group-item">
       <div class="info">
         <%= flat.title %>
@@ -48,3 +41,22 @@
 
 </div>
 
+<div class="trips-info" style="margin-top: 50px;">
+  <ul>
+     <% @booked_flats.each do |book| %>
+     <%= cl_image_tag(book.flat.photo.public_id, width: 200)%>
+
+     <li class="list-group-item">
+      <div class="info">
+        <%= book.start_date %>
+        <br>
+        <%= book.end_date %>
+        <br>
+        <%= book.guests %>
+      </div>
+    </li>
+
+  <% end %>
+  </ul>
+
+</div>
