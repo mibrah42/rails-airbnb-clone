@@ -1,3 +1,10 @@
 @import "utilities";
 @import "footer";
 @import "navbar";
+@import "helpers/search-navbar";
+
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "bootstrap-datepicker";
+@import "font-awesome";
