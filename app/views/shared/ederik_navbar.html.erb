@@ -1,0 +1,50 @@
+<div class="navbar-wagon">
+
+  <!-- left navigation -->
+  <div class="logo_search">
+
+    <!-- Logo -->
+    <a href="/" class="navbar-wagon-brand">
+      <img src="https://s-media-cache-ak0.pinimg.com/originals/92/bf/b7/92bfb777f072d29e4c09b6feca4e487c.png" />
+    </a>
+
+    <!-- Search form -->
+    <form action="" class="navbar-wagon-search">
+      <input type="text" class="navbar-wagon-search-input" placeholder="Search something">
+      <button type="submit" class="navbar-wagon-search-btn">
+        <i class="fa fa-search"></i>
+      </button>
+    </form>
+  </div>
+
+  <!-- Right Navigation -->
+  <div class="navbar-wagon-right hidden-xs hidden-sm">
+
+
+    <!-- Text link -->
+
+    <%= link_to "Become a Host", new_flat_path, class:"navbar-wagon-item navbar-wagon-link"  %>
+
+    <!-- Text link -->
+    <a href="" class="navbar-wagon-item navbar-wagon-link">Help</a>
+
+    <!-- sign up -->
+    <%= link_to 'Sign Up', new_user_registration_path, class:"navbar-wagon-item navbar-wagon-link" %>
+
+    <!-- Log in (call-to-action) -->
+    <%= link_to 'Log in',  new_user_session_path, class:"navbar-wagon-item navbar-wagon-link"  %>
+
+  </div>
+
+  <!-- Dropdown appearing on mobile only -->
+  <div class="navbar-wagon-item hidden-md hidden-lg">
+    <div class="dropdown">
+      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <li><a href="#">Some mobile link</a></li>
+        <li><a href="#">Other one</a></li>
+        <li><a href="#">Other one</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
