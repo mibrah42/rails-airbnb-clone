@@ -11,6 +11,7 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
   </head>
   <body>
+  <%= render 'shared/navbar' %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= cloudinary_js_config %>
