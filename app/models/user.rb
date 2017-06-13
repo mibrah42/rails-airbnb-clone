@@ -1,6 +1,8 @@
 class User < ApplicationRecord
-  has_many :flats
-  has_many :flats, through: :bookings
+  # This is how you rename has_many association
+  has_many :owned_flats, foreign_key: "user_id", class_name: "Flat"
+  # This is how you rename through association
+  has_many :booked_flats, through: :bookings, source: :flat
   has_many :bookings, dependent: :destroy
   has_attachment :photo
 

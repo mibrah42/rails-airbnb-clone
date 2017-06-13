@@ -1,0 +1,50 @@
+<h1 class="text-center">Profile</h1>
+
+<% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+
+<div class="text-center", style="margin-top: 30px">
+  <%= image_tag avatar_url, width: 100, height: 100, style: "border-radius: 50%;" %>
+  <div class="full_name" style="margin-top: 20px">
+    <%= @user.first_name %>
+    <%= @user.last_name %>
+  </div>
+
+  <%= @user.email %>
+
+</div>
+
+
+
+<div class="wrapper">
+  <ul class="list-unstyled list-group">
+
+  <% @flats.each do |flat| %>
+
+    <h2><%= flat.title %></h2>
+
+  <% end %>
+
+  <% @flats.each do |flat| %>
+  <h2><%=  flat.title %></h2>
+
+     <li class="list-group-item">
+      <div class="info">
+        <%= flat.title %>
+        <%= flat.price %>
+        <%= flat.address %>
+        <%= flat.description %>
+      </div>
+
+      <div class="extra">
+        <%= flat.bedrooms %>
+        <%= flat.capacity %>
+        <%= flat.category %>
+      </div>
+    </li>
+
+  <% end %>
+
+  </ul>
+
+</div>
+
