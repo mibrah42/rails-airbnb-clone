@@ -5,7 +5,15 @@
   transition: all 0.3s ease;
   display: flex;
   height: 70px;
-  padding: 0px 30px;
+  padding: 0px 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// left part of the navbar. Logo and search.
+
+.logo_search {
+  display: flex;
   align-items: center;
   justify-content: space-between;
 }
@@ -21,7 +29,7 @@
 
 /* Navbar logo */
 .navbar-wagon-brand img {
-  width: 50px;
+  width: 90px;
 }
 
 /* Navbar right section (with form, links, button) */
@@ -42,10 +50,13 @@
 .navbar-wagon-link {
   color: #616668;
   font-size: 14px;
+  color: #767676;
 }
 .navbar-wagon-link:hover {
-  color: #da552f;
-  text-decoration: none;
+  color: #767676;
+  line-height: 200%;
+
+
 }
 
 /* Navbar right button */
@@ -79,7 +90,7 @@
   border: none;
   background: transparent;
   position: absolute;
-  right: 14px;
+  left: 14px;
   top: -2px;
   z-index: 1;
 }
@@ -93,6 +104,8 @@
   border-radius: 5px;
   padding: 0 10px;
   font-size: 14px;
+  // position: absolute;
+  left: 20px;
   outline: none;
 }
 .navbar-wagon-search-input:focus  {
