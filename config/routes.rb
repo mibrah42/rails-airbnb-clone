@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   # redirect to landing page
   root to: 'flats#index'
+  get '/pages/dashboard', to: 'pages#dashboard'
 
   # resources
   resources :flats, only: [:index, :show, :new, :create] do
