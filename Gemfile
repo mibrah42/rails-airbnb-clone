@@ -17,6 +17,7 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'devise'
 gem 'faker'
+gem 'omniauth-facebook'
 
 
 group :development, :test do
