@@ -1,0 +1,15 @@
+<h1>we are not finished</h1>
+
+<%= simple_form_for @flat do |f| %>
+<%= f.input :title %>
+<%= f.input :price %>
+<%= f.input :description %>
+<%= f.input :address %>
+<%= f.input :bedrooms, collection: 1..10, selected: 1 %>
+<%= f.input :capacity, collection: 1..10, selected: 1 %>
+<%= f.input :category, collection: ["Entire home", "Private room", "Shared room"], selected: "Private room" %>
+<%= f.input :photo, as: :attachinary %>
+<%= f.submit "Add flat" %>
+
+<% end %>
+
