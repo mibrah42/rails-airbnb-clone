@@ -18,6 +18,11 @@ gem 'autoprefixer-rails'
 gem 'devise'
 gem 'faker'
 gem 'omniauth-facebook'
+gem 'cloudinary', '1.1.7'
+gem 'attachinary', github: 'assembler/attachinary'
+gem 'jquery-fileupload-rails'
+gem 'coffee-rails'
+
 
 
 group :development, :test do
