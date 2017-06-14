@@ -1,0 +1,94 @@
+.banner {
+  color: white;
+  text-align: center;
+  height: 50vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: 100% 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.banner h1 {
+  font-size: 50px;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+}
+.banner p {
+  font-size: 20px;
+  font-weight: lighter;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 20px;
+}
+
+.tabs {
+  background: #53443F;
+  display: flex;
+  padding: 10px 10px 0 10px
+}
+.tabs a {
+  color: white;
+}
+.tabs a:hover {
+  cursor: pointer;
+  text-decoration: none;
+  opacity: 0.8;
+}
+.tabs h3 {
+  font-size: 17px;
+  font-weight: bold;
+  margin-top: 0;
+}
+.tabs p {
+  opacity: 0.5;
+  margin-bottom: 0;
+}
+.tab {
+  background: #756A66;
+  flex: 0 0 25%;
+  text-align: center;
+  padding: 20px 0;
+}
+.tab:first-child {
+  border-radius: 10px 0 0 0;
+}
+.tab:last-child {
+  border-radius: 0 10px 0 0;
+}
+.tab.active {
+  background: white;
+  color: black;
+}
+
+.flat-title {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.avatar-large {
+  width: 70px;
+  border-radius: 50%;
+}
+
+.flat-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flat-info-all {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flat-extra-info {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.book-flat {
+  border: 1px solid;
+  border-color: grey;
+  padding: 20px 20px;
+}
