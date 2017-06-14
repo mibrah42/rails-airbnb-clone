@@ -1,16 +1,9 @@
 <!-- Search form -->
 
-
-
-
-
-<form action="#">
+<form action="/flats/search">
   <div class="search-navbar">
     <div id="search-destination">
-      <input id="input-destination" type="text" class="navbar-wagon-search-input-sm form-control" placeholder="Anywhere" style="width: 175px; height: 32.5px; margin-right: 10px;">
-      <button type="submit" class="navbar-wagon-search-btn">
-        <!-- <i class="fa fa-search"></i> -->
-      </button>
+      <input name="destination" id="input-destination" type="text" class="navbar-wagon-search-input-sm form-control" placeholder="Anywhere" style="width: 175px; height: 32.5px; margin-right: 10px;">
     </div>
     <div class="input-daterange input-group" id="datepicker">
         <input type="text" class="input-sm form-control datepicker check" name="start" />
@@ -18,7 +11,7 @@
         <input type="text" class="input-sm form-control datepicker check" name="end" />
     </div>
     <div>
-    <select name="" id="select-guests" class="form-control input-sm" style="margin-left: 10px;">
+    <select name="guests" id="select-guests" class="form-control input-sm" style="margin-left: 10px;">
       <option value="1">1 guest</option>
       <option value="2">2 guests</option>
       <option value="3">3 guests</option>
@@ -29,7 +22,3 @@
     </div>
   </div>
 </form>
-
-
-
-
