@@ -1,4 +1,5 @@
 class Booking < ApplicationRecord
+
   belongs_to :user
   belongs_to :flat
 
@@ -11,6 +12,12 @@ class Booking < ApplicationRecord
   # def set_defaults
     # self.status = "pending" if status.nil?
   # end
+  def confirmed_status
+    self.status = "confirmed"
+  end
 
+  def denied_status
+    self.status = "denied"
+  end
 
 end

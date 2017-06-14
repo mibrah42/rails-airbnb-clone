@@ -3,10 +3,12 @@ Rails.application.routes.draw do
   # redirect to landing page
   root to: 'flats#index'
   get '/pages/dashboard', to: 'pages#dashboard'
+  # patch '/flats/:flat_id/bookings/:id', to: 'bookings#update_confirm', as: :booking_update_confirmed
+
 
   # resources
   resources :flats, only: [:index, :show, :new, :create] do
-    resources :bookings, only: [:new, :create, :show]
+    resources :bookings, only: [:new, :create, :show, :update]
   end
 
   # example
