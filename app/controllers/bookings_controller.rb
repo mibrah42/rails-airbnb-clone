@@ -21,11 +21,15 @@ class BookingsController < ApplicationController
     @booking.flat = @flat
     @booking.user = current_user
 
-    if @booking.save
-      redirect_to flat_booking_path(@booking.flat, @booking)
-    else
-      render :new
-    end
+    return end_method(:success, Messages.render(:success), :redirect_to, flat_booking_path(@booking.flat, @booking) ) if @booking.save
+    end_method(:warning, Messages.render(:failure), :render, :new)
+
+    # Old code
+    # if @booking.save
+    #  redirect_to flat_booking_path(@booking.flat, @booking)
+    # else
+    #  render :new
+    # end
   end
 
   private

@@ -17,11 +17,16 @@ class FlatsController < ApplicationController
   def create
     @flat = Flat.new(flats_params)
     @flat.user = current_user
-    if @flat.save
-      redirect_to flat_path(@flat)
-    else
-      render :new
-    end
+
+    return end_method(:success, Messages.render(:success), :redirect_to, @flat ) if @flat.save
+    end_method(:warning, Messages.render(:failure), :render, :new)
+
+    # Old code
+    # if @flat.save
+    #  redirect_to flat_path(@flat)
+    # else
+    #  render :new
+    # end
   end
 
   private
