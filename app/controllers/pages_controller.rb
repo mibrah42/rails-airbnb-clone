@@ -8,7 +8,6 @@ class PagesController < ApplicationController
     @user = current_user
     @booked_flats = @user.bookings
     @flats = @user.owned_flats
-
   end
 
 end
