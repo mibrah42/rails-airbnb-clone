@@ -3,9 +3,9 @@ current_user.email -->
 
 <div class="navbar-wagon">
   <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo.png", id: "logo-airbnb" %>
-  <% end %>
+  <%#= link_to root_path, class: "navbar-wagon-brand" do %>
+    <%#= image_tag "logo.png", id: "logo-airbnb" %>
+  <%# end %>
 
 
   <!-- left navigation -->
@@ -28,13 +28,13 @@ current_user.email -->
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
 
-      <%= link_to "Become a host", new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Become a host", new_flat_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
-      <%= link_to "Trips", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Dashboard", pages_dashboard_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
-      <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%#= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
 
-      <%= link_to "Help", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%#= link_to "Help", "#", class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
@@ -45,12 +45,12 @@ current_user.email -->
 
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
-              <%= link_to "#" do %>
+              <%= link_to pages_dashboard_path do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
               <% end %>
             </li>
             <li>
-              <%= link_to "#" do %>
+              <%= link_to flats_path do %>
                 <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
               <% end %>
             </li>
