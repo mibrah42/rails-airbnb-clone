@@ -7,13 +7,20 @@ current_user.email -->
     <%= image_tag "logo.png", id: "logo-airbnb" %>
   <% end %>
 
-  <!-- Search form -->
-  <form action="" class="navbar-wagon-search">
-    <input type="text" class="navbar-wagon-search-input" placeholder="Search something">
-    <button type="submit" class="navbar-wagon-search-btn">
-      <i class="fa fa-search"></i>
-    </button>
-  </form>
+
+  <!-- left navigation -->
+  <div class="logo_search">
+
+    <!-- Logo -->
+    <a href="/" class="navbar-wagon-brand">
+      <img src="https://s-media-cache-ak0.pinimg.com/originals/92/bf/b7/92bfb777f072d29e4c09b6feca4e487c.png" />
+    </a>
+
+    <!-- Search form -->
+    <%= render "helpers/search-navbar" %>
+
+  </div>
+
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
