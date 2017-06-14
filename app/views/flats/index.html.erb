@@ -1,5 +1,9 @@
-<div class="index-wrapper text-center">
 
+
+<%= render "helpers/map" %>
+
+
+<div class="over-boot " >
   <div class="container">
       <div class="row">
 
@@ -9,9 +13,9 @@
             <%= link_to flat_path(flat) do %>
               <div class="card-wrapper">
                   <% if flat.photo? %>
-                    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path flat.photo.path %>');">
+                    <div class="card" style="height: 400px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path flat.photo.path %>');">
                   <% else %>
-                    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://unsplash.it/200/300');">
+                    <div class="card" style="height: 400px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://unsplash.it/400/200');">
                   <% end %>
                   <div class="card-category">
                     <h2><%= flat.title %></h2>
@@ -27,10 +31,9 @@
         <% end %>
       </div>
   </div>
-
+</div>
 </div>
 
-<div id="map" style="width: 100%; height: 600px;  "></div>
 
 <% content_for(:after_js) do %>
   <script>
@@ -49,7 +52,3 @@
     });
   </script>
 <% end %>
-
-
-<%= link_to "sign out", destroy_user_session_path, method: :delete  %>
-<%= link_to "dashboard", pages_dashboard_path  %>
