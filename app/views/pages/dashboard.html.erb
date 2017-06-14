@@ -13,50 +13,112 @@
 
 </div>
 
+<!-- owned flats -->
+<div class="user-flats">
+  <div class="wrapper" style="background-color: slategrey;">
+    <ul >
+
+      <% @flats.each do |flat| %>
+
+      <li>
+        <div class="info">
+          <%= flat.title %>
+          <%= flat.price %>
+          <%= flat.address %>
+          <%= flat.description %>
+        </div>
+
+        <div class="extra">
+          <%= flat.bedrooms %>
+          <%= flat.capacity %>
+          <%= flat.category %>
+        </div>
+      </li>
+
+      <% end %>
+
+    </ul>
+
+  </div>
+  <div class="my-bookings">
+    <ul>
+    <% @bookings.select do |booking| %>
+          <% @flats.each do |flat| %>
+              <% if booking.flat_id == flat.id %>
+                <li><%= booking.flat_id %></li>
+                <li>Booking id:<%= booking.id %></li>
+                <li><%= flat.id %></li>
+                <li><%= booking.start_date %></li>
+                <li><%= booking.end_date %></li>
+                <li><%= booking.guests %></li>
+                <li><%= booking.status %></li>
+                <li><%= booking.user.first_name %></li>
+
+                <% if booking.status == 'pending' %>
+
+                <%= form_tag flat_booking_path(flat_id: flat.id, id: booking.id), method: :patch do %>
+                  <button type="submit" name="status" value="confirm" class="btn btn-success">
+                    Confirm
+                  </button>
+
+                  <button type="submit" name="status" value="denied" class= "btn btn-danger">
+                    Deny
+                  </button>
+                <% end %>
+
+                <% end %>
+
+                <% if booking.status == 'confirmed' %>
+                    <button type="submit" name="status" value="denied" class="btn btn-danger">
+                    Deny
+                  </button>
+                 <% end %>
 
 
-<div class="wrapper">
-  <ul class="list-unstyled list-group">
+              <% end %>
+          <% end %>
+      <% end %>
+    </ul>
 
-  <% @flats.each do |flat| %>
 
-     <li class="list-group-item">
-      <div class="info">
-        <%= flat.title %>
-        <%= flat.price %>
-        <%= flat.address %>
-        <%= flat.description %>
-      </div>
+  </div>
 
-      <div class="extra">
-        <%= flat.bedrooms %>
-        <%= flat.capacity %>
-        <%= flat.category %>
-      </div>
-    </li>
 
-  <% end %>
-
-  </ul>
 
 </div>
+
+<!-- My trips -->
 
 <div class="trips-info" style="margin-top: 50px;">
   <ul>
-     <% @booked_flats.each do |book| %>
-     <%= cl_image_tag(book.flat.photo.public_id, width: 200)%>
 
-     <li class="list-group-item">
-      <div class="info">
-        <%= book.start_date %>
-        <br>
-        <%= book.end_date %>
-        <br>
-        <%= book.guests %>
-      </div>
-    </li>
+
+   <% @booked_flats.each do |book| %>
+   <%= cl_image_tag(book.flat.photo.public_id, width: 200)%>
+
+   <li class="list-group-item">
+    <div class="info">
+      <%= book.user.first_name %>
+      <%= book.flat.title %>
+      <%= book.start_date %>
+      <br>
+      <%= book.end_date %>
+      <br>
+      <%= book.status %>
+      <%=  %>
+      <br>
+      <%= book.guests %>
+
+
+    </div>
+  </li>
+
+
 
   <% end %>
-  </ul>
+</ul>
 
 </div>
+
+<!--  your trips -->
+
