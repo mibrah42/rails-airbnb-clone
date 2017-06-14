@@ -1,9 +1,36 @@
-<h1>available flats for this period of time.</h1>
+<div class="content-index">
+
+  <!-- CARDS -->
+  <div class="flats-wrapper" id="flats-two">
+    <div class="container-fluid">
+      <div class="row">
+      <%= render "helpers/flat_cards" %>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAPS -->
+  <div class="hidden-xs hidden-sm" id="map_two" style="width: 33%">
+    <div id="map" style="height: 100%"></div>
+  </div>
+
+</div>
 
 
-<% @flats.each do |flat| %>
-  <%= flat.title %>
-
-
-
+<% content_for(:after_js) do %>
+<script>
+  $(document).ready(function() {
+    var handler = Gmaps.build('Google');
+    handler.buildMap({ internal: { id: 'map' } }, function() {
+      markers = handler.addMarkers(<%= raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      if (markers.length == 0) {
+        handler.getMap().setZoom(2);
+      } else if (markers.length == 1) {
+        handler.getMap().setZoom(14);
+      }
+    });
+  });
+</script>
 <% end %>

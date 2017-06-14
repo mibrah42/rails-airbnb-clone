@@ -1,15 +1,17 @@
 .card-wrapper {
   text-decoration: none;
-  padding: 10px;
   margin: 0px;
 }
 
+.card-grid {
+ margin-top: 20px;
+ a {
+  text-decoration: none;
+}
+}
+
 .card-description {
-  // background-color: rgb(240, 240, 240);
-  padding: 10px;
   margin: 0px;
-  width: 300px;
-  height: 100px;
   p {
     padding: 0px;
     margin: 0px;
@@ -22,22 +24,30 @@
   font-size: 15px;
   font-weight: 700;
   text-decoration-line: none;
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .karla-light {
   font-family: 'Karla', sans-serif;
   font-size: 15px;
   font-weight: 400;
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .star {
   font-size: 14px;
   color: #00A699;
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .card-img {
   position: relative;
-  width: 300px;
   height: 200px;
 }
 
@@ -50,26 +60,9 @@
   font-size: 20px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@media (max-width: 500px) {
+  .card-img {
+    height: 1000px;
+  }
+}
 

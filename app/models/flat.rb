@@ -16,9 +16,7 @@ class Flat < ApplicationRecord
       self.includes(:bookings).where("? <= flats.capacity", guests)
 
     elsif search_start.empty? || search_end.empty?
-      booked = self.includes(:bookings).where("? <= flats.capacity", guests).where(bookings: {status: "confirmed"})
-      booked_ids = booked.map { |f| f.id }
-      self.near(location, 20).where("? <= flats.capacity", guests).where.not(id: booked_ids)
+      self.near(location, 20).where("? <= flats.capacity", guests)
 
     elsif location.empty?
       self.includes(:bookings).where.not("(?, ?) OVERLAPS (bookings.start_date, bookings.end_date)", search_start, search_end).where.not(bookings: {status: "confirmed"})
