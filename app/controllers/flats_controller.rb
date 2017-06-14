@@ -3,12 +3,7 @@ class FlatsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show, :search]
 
   def search
-    @start_date = params[:search_start]
-    @end_date = params[:search_end]
-    @destination = params[:destination]
-    @guests = params[:guests]
-
-    @flats = Flat.available(@start_date, @end_date, @destination, @guests)
+    @flats = Flat.available(params[:search_start], params[:search_end], params[:destination], params[:guests])
   end
 
   def index
