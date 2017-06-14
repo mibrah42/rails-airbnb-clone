@@ -5,7 +5,7 @@ class FlatsController < ApplicationController
   def index
    @flats = Flat.all
 
-    @flats = Flat.where.not(latitude: nil, longitude: nil)
+    # @flats = Flat.where.not(latitude: nil, longitude: nil)
 
     @hash = Gmaps4rails.build_markers(@flats) do |flat, marker|
       marker.lat flat.latitude
