@@ -1,0 +1,75 @@
+.card-wrapper {
+  text-decoration: none;
+  padding: 10px;
+  margin: 0px;
+}
+
+.card-description {
+  // background-color: rgb(240, 240, 240);
+  padding: 10px;
+  margin: 0px;
+  width: 300px;
+  height: 100px;
+  p {
+    padding: 0px;
+    margin: 0px;
+    color: rgb(30,30,30);
+  }
+}
+
+.karla-bold {
+  font-family: 'Karla', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration-line: none;
+}
+
+.karla-light {
+  font-family: 'Karla', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.star {
+  font-size: 14px;
+  color: #00A699;
+}
+
+.card-img {
+  position: relative;
+  width: 300px;
+  height: 200px;
+}
+
+.heart {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: white;
+  // opacity: 0.5;
+  font-size: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
