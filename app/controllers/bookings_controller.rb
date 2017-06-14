@@ -32,10 +32,24 @@ class BookingsController < ApplicationController
     # end
   end
 
+  def update
+    @booking = Booking.find(params[:id])
+
+    if params[:status].downcase == 'confirm'
+      @booking.confirmed_status
+    else
+      @booking.denied_status
+    end
+
+    @booking.save
+
+    redirect_to pages_dashboard_path
+  end
+
   private
   ###
   def bookings_params
-    params.require(:booking).permit(:start_date, :end_date, :guests)
+    params.require(:booking).permit(:start_date, :end_date, :guests, :status)
   end
 
 end
