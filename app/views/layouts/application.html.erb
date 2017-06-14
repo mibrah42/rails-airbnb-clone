@@ -18,7 +18,15 @@
     <% end %>
 
     <%= yield %>
+
+    <!-- JAVASCRIPT FOR GOOGLE MAPS -->
+    <%= javascript_include_tag "https://maps.google.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
+    <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/markerclusterer/src/markerclusterer_compiled.js" %>
+    <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" %>
+    <!-- END JAVASCRIPT FOR GOOGLE MAPS -->
+
     <%= javascript_include_tag 'application' %>
+    <%= yield(:after_js) %>
     <%= cloudinary_js_config %>
 
   </body>
