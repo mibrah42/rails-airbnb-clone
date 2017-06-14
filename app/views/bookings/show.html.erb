@@ -1,35 +1,24 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="just-in-the-middle text-center" style="margin-top: 30px;" >
+        <p><%= @booking.start_date %></p>
+        <p><%= @booking.end_date %></p>
+        <p><%= @booking.guests %></p>
+        <p><%= @booking.flat.title %></p>
+        <p><%= @booking.flat.description %></p>
+        <p><%= @booking.flat.price %></p>
+        <p><%= @booking.flat.bedrooms %></p>
+        <p><%= @booking.flat.capacity %></p>
+        <p><%= @booking.flat.category %></p>
+        <p><%= @booking.user.first_name %></p>
+        <p><%= @booking.user.last_name %></p>
+        <p><%= @booking.user.email %></p>
+
+        <%= link_to "See my Bookings", pages_dashboard_path, class:"btn btn-success"  %>
+      </div>
+    </div>
+  </div>
+</div>
 
 
-<%= @booking.start_date %>
-<br>
-<%= @booking.end_date %>
-<br>
-<%= @booking.guests %>
-<br>
-<%= @booking.flat.title %>
-<br>
-<br>
-<%= @booking.flat.description %>
-<br>
-<br>
-<%= @booking.flat.price %>
-<br>
-<br>
-<%= @booking.flat.bedrooms %>
-<br>
-<br>
-<%= @booking.flat.capacity %>
-<br>
-<br>
-<%= @booking.flat.category %>
-<br>
-<br>
-<%= @booking.user.first_name %>
-<br>
-<br>
-<%= @booking.user.last_name %>
-<br>
-<br>
-<%= @booking.user.email %>
-<br>
-<br>
