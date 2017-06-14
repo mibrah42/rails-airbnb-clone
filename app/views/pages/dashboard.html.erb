@@ -42,41 +42,44 @@
   </div>
   <div class="my-bookings">
     <ul>
-    <% @bookings.select do |booking| %>
-          <% @flats.each do |flat| %>
-              <% if booking.flat_id == flat.id %>
-                <li><%= booking.flat_id %></li>
-                <li>Booking id:<%= booking.id %></li>
-                <li><%= flat.id %></li>
-                <li><%= booking.start_date %></li>
-                <li><%= booking.end_date %></li>
-                <li><%= booking.guests %></li>
-                <li><%= booking.status %></li>
-                <li><%= booking.user.first_name %></li>
+      <% @bookings.select do |booking| %>
+      <% @flats.each do |flat| %>
+      <% if booking.flat_id == flat.id %>
+      <li><%= booking.flat_id %></li>
+      <li>Booking id:<%= booking.id %></li>
+      <li><%= flat.id %></li>
+      <li><%= booking.start_date %></li>
+      <li><%= booking.end_date %></li>
+      <li><%= booking.guests %></li>
+      <li><%= booking.status %></li>
+      <li><%= booking.user.first_name %></li>
 
-                <% if booking.status == 'pending' %>
+      <% if booking.status == 'pending' %>
 
-                <%= form_tag flat_booking_path(flat_id: flat.id, id: booking.id), method: :patch do %>
-                  <button type="submit" name="status" value="confirm" class="btn btn-success">
-                    Confirm
-                  </button>
+      <%= form_tag flat_booking_path(flat_id: flat.id, id: booking.id), method: :patch do %>
+      <button type="submit" name="status" value="confirm" class="btn btn-success">
+        Confirm
+      </button>
 
-                  <button type="submit" name="status" value="denied" class= "btn btn-danger">
-                    Deny
-                  </button>
-                <% end %>
+      <button type="submit" name="status" value="denied" class= "btn btn-danger">
+        Deny
+      </button>
 
-                <% end %>
-
-                <% if booking.status == 'confirmed' %>
-                    <button type="submit" name="status" value="denied" class="btn btn-danger">
-                    Deny
-                  </button>
-                 <% end %>
+      <% end %>
+      <% end %>
 
 
-              <% end %>
-          <% end %>
+
+      <% end %>
+
+      <% if booking.status == 'confirmed' %>
+       <%= form_tag flat_booking_path(flat_id: flat.id, id: booking.id), method: :patch do %>
+      <button type="submit" name="status" value="denied" class="btn btn-danger">
+        Deny
+      </button>
+      <% end %>
+      <% end %>
+      <% end %>
       <% end %>
     </ul>
 
