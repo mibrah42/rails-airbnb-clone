@@ -12,11 +12,23 @@ class Flat < ApplicationRecord
 
   # search available bookings
   def self.available(search_start, search_end, location, guests)
-    booked = self.includes(:bookings).where("(?, ?) OVERLAPS (bookings.start_date, bookings.end_date)", search_start, search_end).references(:bookings)
-    booked_ids = booked.map { |f| f.id }
-    self.near(location, 10).where("? <= flats.capacity", guests).where.not(id: booked_ids)
+    if search_start.empty? && search_end.empty? && location.empty?
+      self.includes(:bookings).where("? <= flats.capacity", guests)
+
+    elsif search_start.empty? || search_end.empty?
+      booked = self.includes(:bookings).where("? <= flats.capacity", guests).where(bookings: {status: "confirmed"})
+      booked_ids = booked.map { |f| f.id }
+      self.near(location, 20).where("? <= flats.capacity", guests).where.not(id: booked_ids)
+
+    elsif location.empty?
+      self.includes(:bookings).where.not("(?, ?) OVERLAPS (bookings.start_date, bookings.end_date)", search_start, search_end).where.not(bookings: {status: "confirmed"})
+
+    else
+      booked = self.includes(:bookings).where(bookings: {status: "confirmed"}).where("(?, ?) OVERLAPS (bookings.start_date, bookings.end_date)", search_start, search_end)
+      booked_ids = booked.map { |f| f.id }
+      self.near(location, 20).where("? <= flats.capacity", guests).where.not(id: booked_ids)
+
+    end
   end
 
 end
-
-# Flat.available("06/14/2017", "06/21/2017", "Barcelona", 4)

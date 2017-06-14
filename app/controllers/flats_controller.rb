@@ -3,22 +3,12 @@ class FlatsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show, :search]
 
   def search
-    destination = params[:destination]
-    start_date = params[:start]
-    end_date = params[:end]
-    guests = params[:guests]
+    @start_date = params[:search_start]
+    @end_date = params[:search_end]
+    @destination = params[:destination]
+    @guests = params[:guests]
 
-    range = (start_date..end_date)
-    booked_on_start = Flat.includes(:bookings).where(bookings: {start_date: range})
-    booked_on_end = Flat.includes(:bookings).where(bookings: {end_date: range})
-
-    start_ids = booked_on_start.map {|f| f.id }
-    end_ids = booked_on_end.map {|f| f.id }
-
-    booked_ids = (start_ids + end_ids).uniq
-    raise
-    @availables = Flat.where.not(id: booked_ids)
-
+    @flats = Flat.available(@start_date, @end_date, @destination, @guests)
   end
 
   def index
