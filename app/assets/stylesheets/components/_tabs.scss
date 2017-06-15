@@ -2,7 +2,8 @@
 .tabs {
   background: white;
   display: flex;
-  color: black;
+  color: white;
+  margin-top: 10px;
   // padding: 10px 10px 0 10px;
 }
 .tabs a {
@@ -16,17 +17,22 @@
 .tabs h3 {
   font-size: 17px;
   font-weight: bold;
+  color: white;
 }
 .tab {
-  background: #756A66;
+  background: #FF5A5F;
   flex: 0 0 25%;
   text-align: center;
   padding: 10px 0;
+  color: white;
 }
 
 .tab.active {
   background: white;
   color: black;
   border: 1px solid;
-  border-color: #53443F;
+  border-color: #FF5A5F;
+  h3 {
+  color: #FF5A5F;
+  }
 }
