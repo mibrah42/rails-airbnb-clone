@@ -1,3 +1,9 @@
+.container-fluid {
+  width: 81%;
+  position: absolute;
+  top: 120px;
+}
+
 .card-wrapper {
   text-decoration: none;
   margin: 0px;
@@ -16,7 +22,20 @@
     padding: 0px;
     margin: 0px;
     color: rgb(30,30,30);
+    overflow: hidden;
+    max-height: 21px;
+    text-overflow: ellipsis;
+    // &:after {
+    //   /* points in the end */
+    //   content: '...';
+    //   /* absolute position */
+    //   position: absolute;
+    //   /* set position to right bottom corner of block */
+    //   right: 0;
+    //   bottom: 0;
+    // }
   }
+
 }
 
 .karla-bold {
@@ -60,9 +79,18 @@
   font-size: 20px;
 }
 
-@media (max-width: 500px) {
+@media screen and (max-width: 900px) {
   .card-img {
-    height: 1000px;
+    height: 900px;
+  }
+}
+
+@media screen and (max-width: 1126px) {
+  .cards-container {
+    width: 100%!important;
+  }
+  #map_position {
+    visibility: collapse;
   }
 }
 
