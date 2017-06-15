@@ -109,14 +109,13 @@
   background-color: yellow;
 }
 
-
 .change-color {
   background-color: white;
 }
 
 @media (max-width: 600px) {
   .change-color {
-    background-color: red;
+    // background-color: red;
   }
 }
 
