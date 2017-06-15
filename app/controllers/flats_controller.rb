@@ -2,8 +2,18 @@ class FlatsController < ApplicationController
 
   skip_before_action :authenticate_user!, only: [:index, :show, :search]
 
+  DateParam = Struct.new(:date)
+
   def search
-    @flats = Flat.available(params[:search_start], params[:search_end], params[:destination], params[:guests])
+    if params[:daterange].empty?
+      start_date = ""
+      end_date = ""
+      @flats = Flat.available(start_date, end_date, params[:destination], params[:guests])
+    else
+      start_date = DateParam.new(params[:daterange].split("-").first.strip)
+      end_date = DateParam.new(params[:daterange].split("-").last.strip)
+      @flats = Flat.available(start_date.date, end_date.date, params[:destination], params[:guests])
+    end
 
     @hash = Gmaps4rails.build_markers(@flats) do |flat, marker|
       marker.lat flat.latitude

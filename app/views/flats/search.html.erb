@@ -10,8 +10,8 @@
   </div>
 
   <!-- MAPS -->
-  <div class="hidden-xs hidden-sm" id="map_two" style="width: 33%">
-    <div id="map" style="height: 100%"></div>
+  <div class="hidden-xs hidden-sm" style="position: fixed; right: 0; top: 70px;" id="map_position">
+    <div id="map" style="height: 100vh"></div>
   </div>
 
 </div>
@@ -21,16 +21,18 @@
 <script>
   $(document).ready(function() {
     var handler = Gmaps.build('Google');
-    handler.buildMap({ internal: { id: 'map' } }, function() {
+    handler.buildMap({provider: { scrollwheel: false, zoomControl: false}, internal: { id: 'map' } }, function() {
       markers = handler.addMarkers(<%= raw @hash.to_json %>);
       handler.bounds.extendWith(markers);
       handler.fitMapToBounds();
+
       if (markers.length == 0) {
         handler.getMap().setZoom(2);
       } else if (markers.length == 1) {
         handler.getMap().setZoom(14);
       }
     });
+
   });
 </script>
 <% end %>

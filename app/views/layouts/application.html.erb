@@ -8,10 +8,10 @@
     <title>airbnb</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/2.1.25/daterangepicker.css">
     <%= stylesheet_link_tag    'application', media: 'all' %>
 
     <!-- for swipebox -->
-    <script src="src/js/jquery.swipebox.js"></script>
 
   </head>
   <body>
@@ -29,6 +29,8 @@
     <!-- END JAVASCRIPT FOR GOOGLE MAPS -->
 
     <%= javascript_include_tag 'application' %>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
     <%= yield(:after_js) %>
     <%= cloudinary_js_config %>
 
