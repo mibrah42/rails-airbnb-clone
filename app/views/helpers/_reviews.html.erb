@@ -1,0 +1,32 @@
+<!-- WE SHOW THE REVIEWS -->
+<div class="reviews-wrapper">
+  <h2>Reviews</h2>
+  <p>This flat has <%= @flat.reviews.length %> reviews.</p>
+  <% @flat.reviews.each do |review| %>
+    <div class="review-wrapper">
+      <div class="review-info">
+        <div>
+          <img src="http://unsplash.it/50/50/?random" alt="user" class="avatar">
+        </div>
+        <div class="review-date-name">
+          <p class="review-name"><%= review.reviewer %></p>
+          <p class="review-date"><%= review.created_at.strftime("%B %Y") %></p>
+        </div>
+      </div>
+      <div class="review-stars">
+        <p>
+          <% if review.stars == 0 || review.stars == nil %>
+            <p>no stars</p>
+          <% else %>
+              <% review.stars.times do %>
+              <i class="fa fa-star star" aria-hidden="true"></i>
+              <% end %>
+          <% end %>
+        </p>
+      </div>
+      <div class="review-body">
+        <p><%= review.body %></p>
+      </div>
+    </div>
+  <% end %>
+</div>

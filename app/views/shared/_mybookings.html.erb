@@ -1,0 +1,65 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+
+        <h1>My bookings</h1>
+        <hr>
+        <div class="my-bookings">
+          <ul class="list-unstyled">
+            <% @bookings.select do |booking| %>
+            <% @flats.each do |flat| %>
+
+            <% if booking.flat_id == flat.id %>
+            <% @booked_flats.each do |book| %>
+            <div class="product">
+              <div class="image">
+                <p> <strong> <%= book.flat.title %> </strong> </p>
+                <%= cl_image_tag(book.flat.photo.path, width: 200, class:"product-image hidden-xs")%>
+              </div>
+              <div class='product-body'>
+                <h3>Booked by <%= book.user.first_name  %> <%= book.user.last_name %> </h3>
+                <p>From <%= book.start_date %> to <%= book.end_date %> </p>
+                <p>Number of guest: <%= booking.guests %></p>
+                <p>Status: <%= booking.status %></p>
+              </div>
+        <% if booking.status == 'pending' %>
+        <%= form_tag flat_booking_path(flat_id: flat.id, id: booking.id), method: :patch do %>
+        <button type="submit" name="status" value="confirm" class="btn btn-success">
+          Confirm
+        </button>
+        <button type="submit" name="status" value="denied" class= "btn btn-danger">
+          Deny
+        </button>
+        <% end %>
+        <% end %>
+
+        <% if booking.status == 'confirmed' %>
+        <%= form_tag flat_booking_path(flat_id: flat.id, id: booking.id), method: :patch do %>
+        <button type="submit" name="status" value="denied" class="btn btn-danger">
+          Deny
+        </button>
+        <% end %>
+        <% end %>
+
+        <% if booking.status == 'denied' %>
+        <%= form_tag flat_booking_path(flat_id: flat.id, id: booking.id), method: :patch do %>
+        <button type="submit" name="status" value="pending" class="btn btn-success">
+          Pending
+        </button>
+        <% end %>
+        <% end %>
+        </div>
+        <hr>
+        <% end %>
+        <% end %>
+        <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+
