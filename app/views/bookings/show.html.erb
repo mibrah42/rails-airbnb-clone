@@ -1,6 +1,6 @@
 
 <div class="summary-wrapper">
-  <div class="container">
+  <div class="container-fluid">
   <div class="row">
   <div class="col-xs-12">
     <div class="summary-card">
@@ -22,7 +22,7 @@
       </div>
       </div>
 
-      <div class="summary-photo hidden-xs hidden-md">
+      <div class="summary-photo hidden-xs hidden-sm">
         <% if @booking.flat.photo? %>
           <%= cl_image_tag @booking.flat.photo.path, width: 400, height: 450, crop: :fill %>
         <% end %>
