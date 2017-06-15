@@ -97,7 +97,7 @@
 
 
    <% @booked_flats.each do |book| %>
-   <%= cl_image_tag(book.flat.photo.public_id, width: 200)%>
+   <%= cl_image_tag(book.flat.photo.path, width: 200)%>
 
    <li class="list-group-item">
     <div class="info">
