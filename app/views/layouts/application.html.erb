@@ -9,7 +9,7 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/2.1.25/daterangepicker.css">
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= stylesheet_link_tag 'application',  media: 'all' %>
 
     <!-- for swipebox -->
 
@@ -22,15 +22,15 @@
 
     <%= yield %>
 
+    <%= javascript_include_tag 'application' %>
     <!-- JAVASCRIPT FOR GOOGLE MAPS -->
     <%= javascript_include_tag "https://maps.google.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
     <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/markerclusterer/src/markerclusterer_compiled.js" %>
     <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" %>
     <!-- END JAVASCRIPT FOR GOOGLE MAPS -->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
 
-    <%= javascript_include_tag 'application' %>
-  <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-  <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
     <%= yield(:after_js) %>
     <%= cloudinary_js_config %>
 

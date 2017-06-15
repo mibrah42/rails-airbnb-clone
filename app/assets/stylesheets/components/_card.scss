@@ -86,8 +86,8 @@
 }
 
 @media screen and (max-width: 1126px) {
-  .container-fluid {
-    width: 100%;
+  .cards-container {
+    width: 100%!important;
   }
   #map_position {
     visibility: collapse;

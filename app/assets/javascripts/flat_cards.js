@@ -1,10 +1,25 @@
+function resizeCard(symbol){
+  var height_card = $(".card-img").height();
+        $(".card-img").css("height", eval(height_card+symbol+1));
+      var width_container = (($(window).width() - $("#map_position").width()) / $(window).width())*100;
+      $(".cards-container").css("width", width_container+"%");
+
+}
+
+// RUBEN
+
 $(function(){
+ var resize = $(window).width();
+ resizeCard("+");
   $(window).resize(function(){
     //console.log( $( window ).width() );
-    var height_card = $(".card-img").height();
-      $(".card-img").css("height", height_card-1);
+    if(resize > $(window).width() ){
+        resizeCard("-");
+    }
+    else{
+        resizeCard("+");
+    }
+    resize = $(window).width();
+  });
 
-    var width_container-fluid = $(".container-fluid").width();
-      $(".container-fluid").css("width", width_container-fluid - 0.01659664%);
-    })
 });
