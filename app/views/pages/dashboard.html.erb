@@ -39,4 +39,39 @@
   <div class="tab-content hidden" id="myprofile">
     <%= render 'shared/myprofile' %>
   </div>
+
+
+</div>
+
+<!-- My trips -->
+
+<div class="trips-info" style="margin-top: 50px;">
+  <ul>
+
+
+   <% @booked_flats.each do |book| %>
+   <%#= cl_image_tag(book.flat.photo.path, width: 200)%>
+
+   <li class="list-group-item">
+    <div class="info">
+      <%= book.user.first_name %>
+      <%= book.flat.title %>
+      <%= book.start_date %>
+      <br>
+      <%= book.end_date %>
+      <br>
+      <%= book.status %>
+      <%=  %>
+      <br>
+      <%= book.guests %>
+
+
+    </div>
+  </li>
+
+
+
+  <% end %>
+</ul>
+
 </div>
