@@ -17,7 +17,7 @@
       </div>
       <div id="total-price">
         <h6 class="info"><strong>Nights: </strong><%= (@booking.end_date - @booking.start_date).to_i %> <strong>Guests: </strong><%= @booking.guests %></h6>
-        <h4><strong>Total price: </strong>€<%= ((@booking.end_date - @booking.start_date) * @booking.flat.price).to_i * @booking.guests %></h4>
+        <h4><strong>Total price: </strong>€<%= ((@booking.end_date - @booking.start_date) * @booking.flat.price).to_i %></h4>
 
       </div>
       </div>
