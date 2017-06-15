@@ -5,26 +5,34 @@
 </div>
 
 
+
+<style>
+/* Note: Try to remove the following lines to see the effect of CSS positioning */
+.affix {
+    top: 65px;
+}
+</style>
+
 <!-- <div class="container-fluid"> -->
 <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 ">
-          <%= render "helpers/description-flat" %>
-          <%= render "helpers/reviews" %>
-          <%= render "helpers/review-adder" if user_signed_in? %>
-          <hr>
-      </div>
-      <div class="col-xs-12 col-sm-6 change-color">
-        <div class="booking">
-            <%= simple_form_for [@flat, @booking] do |f| %>
-            <%= f.input :start_date %>
-            <%= f.input :end_date %>
-            <%= f.input :guests %>
-            <%= f.submit "book", class:"btn btn-primary" %>
-            <% end %>
-          </div>
-      </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 ">
+        <%= render "helpers/description-flat" %>
+        <%= render "helpers/reviews" %>
+        <%= render "helpers/review-adder" if user_signed_in? %>
+        <hr>
     </div>
+    <div class="col-xs-12 col-sm-6 change-color">
+      <div class="booking nav nav-pills nav-stacked" data-spy="affix" data-offset-top="235" > <!-- 205 -->
+          <%= simple_form_for [@flat, @booking] do |f| %>
+          <%= f.input :start_date, required: false %>
+          <%= f.input :end_date, required: false %>
+          <%= f.input :guests, required: false %>
+          <%= f.submit "book", class:"btn btn-primary" %>
+          <% end %>
+        </div>
+    </div>
+  </div>
 </div>
 
 
