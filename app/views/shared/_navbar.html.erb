@@ -1,7 +1,5 @@
-<!-- user_signed_in?
-current_user.email -->
-
 <div class="navbar-wagon navbar-fixed-top">
+
   <!-- Logo -->
   <%#= link_to root_path, class: "navbar-wagon-brand" do %>
     <%#= image_tag "logo.png", id: "logo-airbnb" %>
@@ -39,9 +37,21 @@ current_user.email -->
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <%#= image_tag "http://placehold.it/30x30", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-          <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
-          <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <%#= image_tag , class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+
+          <% if current_user.photo != nil %>
+            <% avatar_url = current_user.photo.path %>
+            <%= cl_image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <% elsif current_user.facebook_picture_url != nil %>
+            <% avatar_url = current_user.facebook_picture_url %>
+            <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <% else %>
+            <% avatar_url = "http://placehold.it/30x30" %>
+            <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <% end %>
+
+
+
 
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
@@ -115,9 +125,6 @@ current_user.email -->
   </div>
 
 <% end %>
-
-
-
 
 </div>
 

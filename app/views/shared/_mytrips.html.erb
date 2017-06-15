@@ -1,0 +1,29 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 ">
+        <h1>My trips</h1>
+        <hr>
+
+         <% @booked_flats.each do |book| %>
+         <div class="product">
+          <%= cl_image_tag(book.flat.photo.path, width: 200, class:"product-image hidden-xs")%>
+          <div class='product-body'>
+            <h3>You booked: <%= book.flat.title  %> </h3>
+            <p>At <%= book.flat.address %></p>
+            <p>From <%= book.start_date %> to <%= book.end_date %> </p>
+            <p>Booking status: <%= book.status %></p>
+          </div>
+          <!-- <ul class="list-inline product-controls hidden-sm hidden-xs">
+            <li><a href=""><i class="fa fa-heart"></i></a></li>
+            <li><a href=""><i class="fa fa-share"></i></a></li>
+            <li><a href=""><i class="fa fa-star"></i></a></li>
+          </ul> -->
+        </div>
+        <hr>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+

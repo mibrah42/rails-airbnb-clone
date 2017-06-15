@@ -37,8 +37,10 @@ class BookingsController < ApplicationController
 
     if params[:status].downcase == 'confirm'
       @booking.confirmed_status
-    else
+    elsif params[:status].downcase == 'denied'
       @booking.denied_status
+    else
+      @booking.pending_status
     end
 
     @booking.save

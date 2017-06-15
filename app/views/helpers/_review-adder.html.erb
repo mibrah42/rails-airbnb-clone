@@ -1,0 +1,12 @@
+<h2>Add your review</h2>
+<%= simple_form_for([@flat, @review]) do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :reviewer, :as => :hidden, :input_html => { :value => current_user.first_name } %>
+  <%= f.input :fb_pic_url, :as => :hidden, :input_html => { :value => current_user.facebook_picture_url } %>
+
+
+  <%= f.input :stars, collection: 0..5 %>
+  <%= f.input :body %>
+  <%= f.button :submit %>
+<% end %>

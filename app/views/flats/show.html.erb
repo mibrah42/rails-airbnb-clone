@@ -1,103 +1,35 @@
-      <div class="banner-show-flat">
-        <div class="banner" style="background-image: url('https://unsplash.it/1000/300/?random');">
-        </div>
-      </div>
-      <!-- <div class="tabs"> -->
- <!--  <a class="tab active" href="#">
-    <h3>350</h3>
-    <p>Followers</p>
-  </a>
-  <a class="tab" href="#">
-    <h3>456</h3>
-    <p>Following</p>
-  </a>
-  <a class="tab" href="#">
-    <h3>189</h3>
-    <p>Upvoted</p>
-  </a>
-  <a class="tab" href="#">
-    <h3>13</h3>
-    <p>Submitted</p>
-  </a>
-</div> -->
-
-
-
-<div class="wrapper">
-  <div class="container">
-    <div class="row">
-    <div class="header-flat-info" style="margin-top: 20px; margin-bottom: 20px;">
-        <div class="col-sm-6 col-sm-offset-1 ">
-            <hr>
-          <div class="flat-info">
-
-              <div class="flat-info-title-address">
-              <h2><strong> <%= @flat.title %> </strong> </h2>
-              <p> <%= @flat.address %> </p>
-            </div>
-           <div class="avatar-flat-show">
-            <img src="https://randomuser.me/api/portraits/men/<%= rand(30) %>.jpg" alt="user" class="avatar-large">
-            <br>
-            <%= @flat.user.first_name %>
-          </div>
-
-        </div>
-        <hr>
-        <div class="flat-extra-info">
-          <div class="category-icon text-center">
-            <i class="fa fa-home" aria-hidden="true"></i>
-            <p><%= @flat.category %> </p>
-          </div>
-          <div class="capacity-icon text-center">
-            <i class="fa fa-users" aria-hidden="true"></i>
-            <p><%= @flat.capacity %> </p>
-          </div>
-          <div class="bedrooms-icon text-center">
-            <i class="fa fa-bed" aria-hidden="true"></i>
-            <p><%= @flat.bedrooms %> </p>
-          </div>
-          <div class="price-icon text-center">
-            <i class="fa fa-money" aria-hidden="true"></i>
-            <p><%= @flat.price %> </p>
-          </div>
-        </div>
-        <hr>
-      </div>
-
-      <div class="col-sm-4">
-        <div class="book-flat">
-          <%= simple_form_for [@flat, @booking] do |f| %>
-          <%= f.input :start_date %>
-          <%= f.input :end_date %>
-          <%= f.input :guests %>
-          <%= f.submit "book", class:"btn btn-primary" %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-<div class="wrapper">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 col-sm-offset-1">
-        <div class="description">
-        <h1><strong>Description</strong></h1>
-            <%= @flat.description %>
-        </div>
-      </div>
-    </div>
+<div class="banner-show-flat">
+  <div class="banner" style="background-image: url('https://unsplash.it/1000/300/?random');">
   </div>
 </div>
 
-<div class="break">
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
+
+<!-- <div class="container-fluid"> -->
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 ">
+        <%= render "helpers/description-flat" %>
+        <%= render "helpers/reviews" %>
+        <%= render "helpers/review-adder" %>
+      </div>
+      <div class="col-xs-12 col-sm-6 change-color">
+        <div class="booking">
+            <%= simple_form_for [@flat, @booking] do |f| %>
+            <%= f.input :start_date %>
+            <%= f.input :end_date %>
+            <%= f.input :guests %>
+            <%= f.submit "book", class:"btn btn-primary" %>
+            <% end %>
+          </div>
+      </div>
+    </div>
 </div>
+
+
+
+
+
+
+
 
 

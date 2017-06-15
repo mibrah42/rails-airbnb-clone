@@ -20,4 +20,8 @@ class Booking < ApplicationRecord
     self.status = "denied"
   end
 
+  def pending_status
+    self.status = "pending"
+  end
+
 end
