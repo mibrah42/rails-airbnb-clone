@@ -38,6 +38,7 @@ class FlatsController < ApplicationController
     @flat = Flat.find(params[:id])
     @booking =  Booking.new
     @review = Review.new
+
     # @flat_coordinates = { lat: @flat.latitude, lng: @flat.longitude }
   end
 
