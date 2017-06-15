@@ -1,127 +1,42 @@
-<h1 class="text-center">Profile</h1>
+<div class="wrapper">
+ <div class="container">
+   <div class="row">
+     <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
+      <h1>Welcome <%= @user.first_name %></h1>
+      <h3>Check your trips, listing and bookings</h3>
 
-<% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
-
-<div class="text-center", style="margin-top: 30px">
-  <%= image_tag avatar_url, width: 100, height: 100, style: "border-radius: 50%;" %>
-  <div class="full_name" style="margin-top: 20px">
-    <%= @user.first_name %>
-    <%= @user.last_name %>
-  </div>
-
-  <%= @user.email %>
-
-</div>
-
-<!-- owned flats -->
-<div class="user-flats">
-  <div class="wrapper" style="background-color: slategrey;">
-    <ul >
-
-      <% @flats.each do |flat| %>
-
-      <li>
-        <div class="info">
-          <%= flat.title %>
-          <%= flat.price %>
-          <%= flat.address %>
-          <%= flat.description %>
-        </div>
-
-        <div class="extra">
-          <%= flat.bedrooms %>
-          <%= flat.capacity %>
-          <%= flat.category %>
-        </div>
-      </li>
-
-      <% end %>
-
-    </ul>
-
-  </div>
-  <div class="my-bookings">
-    <ul>
-      <% @bookings.select do |booking| %>
-      <% @flats.each do |flat| %>
-      <% if booking.flat_id == flat.id %>
-      <li><%= booking.flat_id %></li>
-      <li>Booking id:<%= booking.id %></li>
-      <li><%= flat.id %></li>
-      <li><%= booking.start_date %></li>
-      <li><%= booking.end_date %></li>
-      <li><%= booking.guests %></li>
-      <li><%= booking.status %></li>
-      <li><%= booking.user.first_name %></li>
-
-      <% if booking.status == 'pending' %>
-
-      <%= form_tag flat_booking_path(flat_id: flat.id, id: booking.id), method: :patch do %>
-      <button type="submit" name="status" value="confirm" class="btn btn-success">
-        Confirm
-      </button>
-
-      <button type="submit" name="status" value="denied" class= "btn btn-danger">
-        Deny
-      </button>
-
-      <% end %>
-      <% end %>
-
-
-
-      <% end %>
-
-      <% if booking.status == 'confirmed' %>
-       <%= form_tag flat_booking_path(flat_id: flat.id, id: booking.id), method: :patch do %>
-      <button type="submit" name="status" value="denied" class="btn btn-danger">
-        Deny
-      </button>
-      <% end %>
-      <% end %>
-      <% end %>
-      <% end %>
-    </ul>
-
-
-  </div>
-
-
-
-</div>
-
-<!-- My trips -->
-
-<div class="trips-info" style="margin-top: 50px;">
-  <ul>
-
-
-   <% @booked_flats.each do |book| %>
-   <%= cl_image_tag(book.flat.photo.path, width: 200)%>
-
-   <li class="list-group-item">
-    <div class="info">
-      <%= book.user.first_name %>
-      <%= book.flat.title %>
-      <%= book.start_date %>
-      <br>
-      <%= book.end_date %>
-      <br>
-      <%= book.status %>
-      <%=  %>
-      <br>
-      <%= book.guests %>
-
-
+      <hr>
     </div>
-  </li>
-
-
-
-  <% end %>
-</ul>
-
+  </div>
 </div>
-
-<!--  your trips -->
-
+</div>
+<!-- tab bar -->
+<div class="tabs">
+  <a class="tab active" data-target="#myflats">
+    <h3>Your listing</h3>
+  </a>
+  <a class="tab" data-target="#mybooking">
+    <h3>Your bookings</h3>
+  </a>
+  <a class="tab" data-target="#mytrips">
+    <h3>Your trips</h3>
+  </a>
+  <a class="tab" data-target="#myprofile">
+    <h3>Your profile</h3>
+  </a>
+</div>
+<!-- content for the different tabs -->
+<div class="container text-center">
+  <div class="tab-content" id="myflats">
+    <%= render 'shared/myflats' %>
+  </div>
+  <div class="tab-content hidden" id="mybooking">
+    <%= render 'shared/mybookings' %>
+  </div>
+  <div class="tab-content hidden" id="mytrips">
+    <%= render 'shared/mytrips' %>
+  </div>
+  <div class="tab-content hidden" id="myprofile">
+    <%= render 'shared/myprofile' %>
+  </div>
+</div>

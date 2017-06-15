@@ -1,0 +1,26 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <ul class="list-unstyled" >
+        <h1>my flats</h1>
+        <% @flats.each do |flat| %>
+        <li>
+          <div class="info">
+           <p> <%= flat.title %></p>
+           <p> <%= flat.price %></p>
+           <p> <%= flat.address %></p>
+           <p> <%= flat.description %></p>
+         </div>
+         <div class="extra">
+           <p> <%= flat.bedrooms %></p>
+           <p> <%= flat.capacity %></p>
+           <p> <%= flat.category %></p>
+         </div>
+       </li>
+       <% end %>
+     </ul>
+     </div>
+   </div>
+ </div>
+</div>

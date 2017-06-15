@@ -1,0 +1,54 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-11 ">
+
+          <h1>my trips</h1>
+          <ul>
+           <% @booked_flats.each do |book| %>
+           <div class="product">
+            <%= cl_image_tag(book.flat.photo.path, width: 200)%>
+            <!-- <img src="#" alt="kudoz" class="product-image hidden-xs"> -->
+            <div class='product-body'>
+              <h3>Booked by <%= book.user.first_name  %> <%= book.user.last_name %> </h3>
+              <p>from <%= book.start_date %> to <%= book.end_date %> </p>
+            </div>
+            <ul class="list-inline product-controls hidden-sm hidden-xs">
+              <li><a href=""><i class="fa fa-heart"></i></a></li>
+              <li><a href=""><i class="fa fa-share"></i></a></li>
+              <li><a href=""><i class="fa fa-star"></i></a></li>
+            </ul>
+          </div>
+          <hr>
+          <% end %>
+<!--
+           <div class="product-image hidden-xs">
+           <%#= cl_image_tag(book.flat.photo.path, width: 200)%>
+           </div>
+           <li class="list-unstyled">
+            <div class='product-body'>
+              <%#= book.user.first_name %>
+              <%#= book.flat.title %>
+              <%#= book.start_date %>
+              <br>
+              <%#= book.end_date %>
+              <br>
+              <%#= book.status %>
+              <%#=  %>
+              <br>
+              <%#= book.guests %>
+            </div>
+          </li>
+
+        </ul>
+       <ul class="list-inline product-controls hidden-sm hidden-xs">
+    <li><a href=""><i class="fa fa-heart"></i></a></li>
+    <li><a href=""><i class="fa fa-share"></i></a></li>
+    <li><a href=""><i class="fa fa-star"></i></a></li>
+  </ul> -->
+
+</div>
+</div>
+</div>
+
+
