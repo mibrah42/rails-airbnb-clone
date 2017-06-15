@@ -1,6 +1,16 @@
 class FlatsController < ApplicationController
 
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :search]
+
+  def search
+    @flats = Flat.available(params[:search_start], params[:search_end], params[:destination], params[:guests])
+
+    @hash = Gmaps4rails.build_markers(@flats) do |flat, marker|
+      marker.lat flat.latitude
+      marker.lng flat.longitude
+      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+    end
+  end
 
   def index
    @flats = Flat.all
