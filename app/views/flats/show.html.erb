@@ -91,6 +91,38 @@
   </div>
 </div>
 
+<p><%= @flat.reviews %></p>
+<p><%= @flat.reviews.build %></p>
+
+<!-- WE SHOW THE REVIEWS -->
+<h2>Reviews</h2>
+<% @flat.reviews.each do |review| %>
+  <p>
+    <strong>Reviewer:</strong>
+    <%= review.reviewer %>
+  </p>
+  <p>
+    <strong>Stars:</strong>
+    <%= review.stars %>
+  </p>
+  <p>
+    <strong>Body:</strong>
+    <%= review.body %>
+  </p>
+<% end %>
+
+
+<!-- SIMPLE FORM FOR INTRODUCING A REVIEW -->
+<%= simple_form_for([@flat, @review]) do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :reviewer %>
+  <%= f.input :stars %>
+  <%= f.input :body %>
+
+  <%= f.button :submit %>
+<% end %>
+
 <div class="break">
   <br>
   <br>
