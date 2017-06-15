@@ -1,0 +1,16 @@
+<h1>hello</h1>
+
+
+
+<% @bookings.each do |booking|  %>
+<% if @flats_array.include?(booking.flat_id) %>
+
+<%= "hello" %>
+<%= booking.flat.title %>
+<%= booking.status %>
+
+<% end %>
+
+
+
+<% end  %>

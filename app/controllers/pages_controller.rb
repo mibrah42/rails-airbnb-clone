@@ -9,6 +9,11 @@ class PagesController < ApplicationController
     @booked_flats = @user.bookings
     @bookings = Booking.all
     @flats = @user.owned_flats
+
+    @flats_array = @flats.map do |flat|
+       flat.id
+    end
+
   end
 
 

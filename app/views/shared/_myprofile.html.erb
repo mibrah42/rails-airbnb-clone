@@ -1,9 +1,19 @@
-<h1>My profile</h1>
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1>My profile</h1>
+        <hr>
+        <div class="profile-info">
         <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
         <%= image_tag avatar_url, width: 50, height: 50, style: "border-radius: 50%;" %>
 
         <h1><%= @user.first_name %> <%= @user.last_name %></h1>
         <h3><%= @user.email %></h3>
-
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
