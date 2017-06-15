@@ -58,10 +58,11 @@
 // POSITIONING
 // #######################################################
 
-.booking {
+.booking-wrapper {
   margin-top: 30px;
   margin-right: 10px;
   padding: 20px;
+  width: 300px;
   // height: 400px;
   border: 1px solid rgb(220,220,200);
 }
@@ -72,6 +73,35 @@
 
 .change-color {
   background-color: white;
+}
+
+.booking-price {
+  margin: -20px -20px 20px -20px;
+  background-color: #484848;
+  padding: 10px 80px 2px 10px;
+
+  p {
+    color: white;
+    font-size: 30px;
+  }
+
+  .booking-bolt {
+    color: orange;
+  }
+}
+
+#per-night {
+  font-size: 15px;
+}
+
+.book-btn {
+  width: 80%;
+  // ###albert need to be improved! need of text-center, but it doesn't work
+  margin-left: 28px;
+}
+
+.off-affix {
+
 }
 
 @media (max-width: 600px) {
