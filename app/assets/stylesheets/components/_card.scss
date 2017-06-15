@@ -1,0 +1,68 @@
+.card-wrapper {
+  text-decoration: none;
+  margin: 0px;
+}
+
+.card-grid {
+ margin-top: 20px;
+ a {
+  text-decoration: none;
+}
+}
+
+.card-description {
+  margin: 0px;
+  p {
+    padding: 0px;
+    margin: 0px;
+    color: rgb(30,30,30);
+  }
+}
+
+.karla-bold {
+  font-family: 'Karla', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration-line: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.karla-light {
+  font-family: 'Karla', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.star {
+  font-size: 14px;
+  color: #00A699;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.card-img {
+  position: relative;
+  height: 200px;
+}
+
+.heart {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: white;
+  // opacity: 0.5;
+  font-size: 20px;
+}
+
+@media (max-width: 500px) {
+  .card-img {
+    height: 1000px;
+  }
+}
+

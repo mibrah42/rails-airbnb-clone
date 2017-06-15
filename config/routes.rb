@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/pages/dashboard', to: 'pages#dashboard'
   # patch '/flats/:flat_id/bookings/:id', to: 'bookings#update_confirm', as: :booking_update_confirmed
 
+  get "/flats/search", to: "flats#search"
 
   # resources
   resources :flats, only: [:index, :show, :new, :create] do
