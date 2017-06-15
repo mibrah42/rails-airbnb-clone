@@ -12,7 +12,7 @@
     </div>
     <% end %>
     <div class="card-description">
-      <p class="karla-bold">€<%= flat.price %> <%= flat.title %></p>
+      <p class="karla-bold">€<%= flat.price %> <%= truncate(flat.title,length: 50) %></p>
       <p class="karla-light"><%= flat.category %> - <%= flat.bedrooms %> beds</p>
       <% 5.times do %>
       <i class="fa fa-star star" aria-hidden="true"></i>
