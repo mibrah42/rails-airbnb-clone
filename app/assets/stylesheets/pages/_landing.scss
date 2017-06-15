@@ -1,0 +1,19 @@
+// flex container
+.content-index {
+  // background-color: green;
+  display: flex;
+  flex-direction: row;
+}
+
+// flex item
+.container-map {
+  width: 300px;
+}
+
+// flex item
+.flats-wrapper {
+  flex-grow: 1;
+  //background-color: yellow;
+}
+
+

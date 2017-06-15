@@ -8,6 +8,12 @@
   padding: 0px 10px;
   align-items: center;
   justify-content: space-between;
+  /*albert
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;*/
+
 }
 
 // left part of the navbar. Logo and search.
@@ -141,4 +147,15 @@
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
+}
+
+// Icon in Anywhere
+
+
+
+#input-destination {
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
 }
