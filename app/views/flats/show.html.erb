@@ -4,8 +4,6 @@
   </div>
 </div>
 
-
-
 <style>
 /* Note: Try to remove the following lines to see the effect of CSS positioning */
 .affix {
@@ -22,15 +20,21 @@
         <%= render "helpers/review-adder" if user_signed_in? %>
         <hr>
     </div>
-    <div class="col-xs-12 col-sm-6 change-color">
-      <div class="booking nav nav-pills nav-stacked" data-spy="affix" data-offset-top="235" > <!-- 205 -->
+    <div class="col-xs-12 col-sm-6 off-affix">
+      <div class="booking-wrapper nav nav-pills nav-stacked" data-spy="affix" data-offset-top="235" >
+        <div class="booking-price ">
+          <p><i class="fa fa-bolt booking-bolt" aria-hidden="true"></i> €<%= @flat.price %> <span id="per-night">per night</span></p>
+        </div>
+
+        <div class="booking-userform">
           <%= simple_form_for [@flat, @booking] do |f| %>
-          <%= f.input :start_date, required: false %>
-          <%= f.input :end_date, required: false %>
-          <%= f.input :guests, required: false %>
-          <%= f.submit "book", class:"btn btn-primary" %>
+          <%= f.input :start_date, required: false, label: 'Check In' %>
+          <%= f.input :end_date, required: false, label: 'Check Out' %>
+          <%= f.input :guests, required: false, collection: (0..10), default: 1 %>
+          <%= f.submit "book", class:"btn btn-danger lg book-btn" %>
           <% end %>
         </div>
+      </div>
     </div>
   </div>
 </div>
