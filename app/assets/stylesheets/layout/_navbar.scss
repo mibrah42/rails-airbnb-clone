@@ -159,3 +159,36 @@
     font-weight: normal;
     text-decoration: inherit;
 }
+
+
+
+// animation
+
+.animation, .animation:hover {
+  color: #000;
+  text-decoration: none;
+}
+
+.animation {
+  display: inline-block;
+  position: relative;
+  padding-bottom: 3px;
+  margin-right: 10px;
+}
+.animation:last-child {
+  margin-right: 0;
+}
+
+.animation:after {
+  content: '';
+  display: block;
+  margin: auto;
+  height: 1px;
+  width: 0px;
+  background: transparent;
+  // transition: width .1s ease, background-color .5s ease;
+}
+.animation:hover:after {
+  width: 100%;
+  background: black;
+}
