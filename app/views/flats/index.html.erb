@@ -1,10 +1,15 @@
-<div class="content-index">
 
-  <!-- CARDS -->
+<div class="content-index">
   <div class="flats-wrapper" id="flats-two">
     <div class="container-fluid cards-container">
+      <!-- THE EYE -->
+      <div class="quote">
+        <div><p><strong>Others looking: <%= rand(200..600) %></strong> They’re searching for the same dates as you.</p>
+        </div>
+      </div>
+      <!-- CARDS -->
       <div class="row">
-      <%= render "helpers/flat_cards" %>
+        <%= render "helpers/flat_cards" %>
       </div>
     </div>
   </div>

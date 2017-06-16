@@ -1,13 +1,13 @@
 <% @flats.each do |flat| %>
-<div class="col-xs-12 col-sm-6 col-lg-4 card-grid">
+<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 card-grid">
   <%= link_to flat_path(flat) do %>
   <div class="card-wrapper">
     <% if flat.photo? %>
-    <div class="card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path flat.photo.path %>')">
+    <div class="card-img" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= cl_image_path flat.photo.path %>')">
       <i class="fa fa-heart-o heart" aria-hidden="true"></i>
     </div>
     <% else %>
-    <div class="card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://unsplash.it/400/200'); width:100%">
+    <div class="card-img" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://unsplash.it/400/200'); width:100%">
       <i class="fa fa-heart-o heart" aria-hidden="true"></i>
     </div>
     <% end %>

@@ -8,8 +8,6 @@ function resizeCard(symbol){
 
 }
 
-// RUBEN
-
 $(function(){
  var resize = $(window).width();
  resizeCard("+");

@@ -1,28 +1,42 @@
+<!-- testing git, i want to see sth. -->
 <div class="banner-show-flat">
   <div class="banner" style="background-image: url('https://unsplash.it/1000/300/?random');">
   </div>
 </div>
 
+<style>
+/* Note: Try to remove the following lines to see the effect of CSS positioning */
+.affix {
+    top: 65px;
+}
+</style>
 
 <!-- <div class="container-fluid"> -->
-<div class="container-fluid">
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 ">
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 ">
         <%= render "helpers/description-flat" %>
         <%= render "helpers/reviews" %>
-        <%= render "helpers/review-adder" %>
-      </div>
-      <div class="col-xs-12 col-sm-6 change-color">
-        <div class="booking">
-            <%= simple_form_for [@flat, @booking] do |f| %>
-            <%= f.input :start_date %>
-            <%= f.input :end_date %>
-            <%= f.input :guests %>
-            <%= f.submit "book", class:"btn btn-primary" %>
-            <% end %>
-          </div>
+        <%= render "helpers/review-adder" if user_signed_in? %>
+        <hr>
+    </div>
+    <div class="col-xs-12 col-sm-6 off-affix">
+      <div class="booking-wrapper nav nav-pills nav-stacked" data-spy="affix" data-offset-top="235" >
+        <div class="booking-price ">
+          <p><i class="fa fa-bolt booking-bolt" aria-hidden="true"></i> €<%= @flat.price %> <span id="per-night">per night</span></p>
+        </div>
+
+        <div class="booking-userform">
+          <%= simple_form_for [@flat, @booking] do |f| %>
+          <%= f.input :start_date, required: false, label: 'Check In' %>
+          <%= f.input :end_date, required: false, label: 'Check Out' %>
+          <%= f.input :guests, required: false, collection: (0..10), default: 1 %>
+          <%= f.submit "book", class:"btn btn-danger lg book-btn" %>
+          <% end %>
+        </div>
       </div>
     </div>
+  </div>
 </div>
 
 
