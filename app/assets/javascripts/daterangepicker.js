@@ -22,5 +22,4 @@ today = mm+'/'+dd+'/'+yyyy;
     "autoApply": true,
     "minDate": today,
   });
-  $("#daterange").val("Anytime")
 });
