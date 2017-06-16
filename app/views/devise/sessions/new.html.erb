@@ -1,9 +1,12 @@
-<div class="wrapper-new-devise">
-  <div class="container-new-devise text-center">
+<% content_for :title, "Log In" %>
+
+<br>
+<div class="wrapper-new-devise" style="margin-top: 80px;">
+  <div class="container-new-devise ">
     <div class="row-new-devise">
       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <h2>Log in</h2>
-
+      <h2 class="text-center">Log in</h2>
+      <br>
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-inputs ">
 
@@ -12,12 +15,14 @@
         <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
       </div>
 
-      <div class="form-actions">
-        <%= f.button :submit, "Log in" %>
+      <div class="form-actions text-center" >
+        <%= f.button :submit, "Log in"%>
       </div>
       <% end %>
-
+      <br>
+      <div class="text-center">
       <%= render "devise/shared/links" %>
+      </div>
       </div>
     </div>
   </div>
