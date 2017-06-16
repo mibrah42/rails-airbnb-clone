@@ -1,6 +1,10 @@
+<% content_for :title, @flat.title.capitalize %>
+
+
+
 <!-- testing git, i want to see sth. -->
 <div class="banner-show-flat">
-  <div class="banner" style="background-image: url('https://unsplash.it/1000/300/?random');">
+  <div class="banner" style="position: center; background-size: cover; background-image: url('<%= cl_image_path @flat.photo.path %>');">
   </div>
 </div>
 
@@ -21,7 +25,7 @@
         <hr>
     </div>
     <div class="col-xs-12 col-sm-6 off-affix">
-      <div class="booking-wrapper nav nav-pills nav-stacked" data-spy="affix" data-offset-top="235" >
+      <div class="booking-wrapper nav nav-pills nav-stacked" data-spy="affix" data-offset-top="520" >
         <div class="booking-price ">
           <p><i class="fa fa-bolt booking-bolt" aria-hidden="true"></i> €<%= @flat.price %> <span id="per-night">per night</span></p>
         </div>

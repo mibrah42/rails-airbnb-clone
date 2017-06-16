@@ -1,7 +1,8 @@
 <!-- WE SHOW THE REVIEWS -->
 <div class="reviews-wrapper">
   <h2>Reviews</h2>
-  <p>This flat has <%= @flat.reviews.length %> reviews.</p>
+  <p>This flat has <%= pluralize @flat.reviews.length, "review" %>.</p>
+
   <% @flat.reviews.each do |review| %>
     <div class="review-wrapper">
       <div class="review-info">

@@ -1,7 +1,7 @@
 .banner {
   color: white;
   text-align: center;
-  height: 50vh;
+  height: 80vh;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: 100% 100%;
   display: flex;
@@ -100,12 +100,8 @@
   margin-left: 28px;
 }
 
-.off-affix {
-  // not used
-}
-
 @media (max-width: 600px) {
-  .change-color {
+  .off-fix {
     // background-color: red;
   }
 }

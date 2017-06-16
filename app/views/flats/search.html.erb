@@ -1,8 +1,14 @@
-<div class="content-index">
+<% content_for :title, "Vacation Rentals, Homes, Experiences & Places - Airbnb" %>
 
+<div class="content-index">
   <!-- CARDS -->
   <div class="flats-wrapper" id="flats-two">
     <div class="container-fluid cards-container">
+      <!-- THE EYE -->
+      <div class="quote">
+
+        <div><p><img src="https://a0.muscache.com/airbnb/static/page2/icon-clock-289480ccc5c2d0b7a8f400bd791f91c8.svg" alt="wtf" style=" padding-bottom: 5px; width:40px; height:40px; margin-right: 5px;"><strong> Only <%= rand(2..10) %>% of listings are left for these dates.</strong> <em>We recommend booking a place soon.</em></p>
+        </div>
       <div class="row">
       <%= render "helpers/flat_cards" %>
       </div>
