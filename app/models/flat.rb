@@ -6,7 +6,7 @@ class Flat < ApplicationRecord
 
   has_attachment :photo
 
-  validates :title, :price, :address, :description, :bedrooms, :capacity, :category, presence: true
+  validates :title, :price, :address, :description, :bedrooms, :capacity, :category, :photo, presence: true
 
   # Store address in address column after validation (saving)
   geocoded_by :address
