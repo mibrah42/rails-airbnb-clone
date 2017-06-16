@@ -1,4 +1,4 @@
-.container-fluid {
+.cards-container {
   width: 81%;
   position: absolute;
   top: 120px;
@@ -11,6 +11,9 @@
 
 .card-grid {
  margin-top: 20px;
+ padding-left: 8px;
+ padding-right: 8px;
+
  a {
   text-decoration: none;
 }
@@ -66,8 +69,15 @@
 }
 
 .card-img {
+  background-size: cover;
+  background-position: center;
   position: relative;
-  height: 200px;
+  margin-bottom: 8px;
+  height: 220px;
+  i {
+    font-size: 30px;
+    font-weight: 100px;
+  }
 }
 
 .heart {
@@ -79,11 +89,12 @@
   font-size: 20px;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1440px) {
   .card-img {
-    height: 900px;
+    height: 295px;
   }
 }
+
 
 @media screen and (max-width: 1126px) {
   .cards-container {
@@ -92,5 +103,13 @@
   #map_position {
     visibility: collapse;
   }
+  .card-img {
+    height: 352px;
+  }
 }
 
+@media screen and (max-width: 743px) {
+  .card-img {
+    height: 480px;
+  }
+}
