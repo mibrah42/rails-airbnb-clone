@@ -14,6 +14,7 @@ class PagesController < ApplicationController
        flat.id
     end
 
+
   end
 
 

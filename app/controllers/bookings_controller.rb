@@ -33,6 +33,7 @@ class BookingsController < ApplicationController
   end
 
   def update
+
     @booking = Booking.find(params[:id])
 
     if params[:status].downcase == 'confirm'
@@ -43,13 +44,36 @@ class BookingsController < ApplicationController
       @booking.pending_status
     end
 
-    @booking.save
-
-    redirect_to pages_dashboard_path
+    if @booking.save
+      set_defaults
+      respond_to do |format|
+        format.html { redirect_to pages_dashboard_path }
+        format.js
+      end
+    else
+      set_defaults
+      respond_to do |format|
+        format.js
+      end
+    end
+    #render json: {
+    #  status: @booking.status
+    #}
+    # redirect_to pages_dashboard_path
   end
 
   private
   ###
+  def set_defaults
+    @user = current_user
+      @booked_flats = @user.bookings
+      @bookings = Booking.all
+      @flats = @user.owned_flats
+
+      @flats_array = @flats.map do |flat|
+         flat.id
+       end
+   end
   def bookings_params
     params.require(:booking).permit(:start_date, :end_date, :guests, :status)
   end

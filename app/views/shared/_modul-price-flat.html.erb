@@ -1,0 +1,19 @@
+
+<%= link_to '#SignInModal2', "data-toggle" => "modal"  do %>
+<i class="fa fa-money" aria-hidden="true"></i>
+<p>€<%= flat.price %> </p>
+<% end %>
+
+<div class="modal fade" id="SignInModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+ <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel">Price of the room</h3>
+      </div>
+      <div class="modal-body text-center">
+        <p>This is the price of your flat per night</p>
+        <p>Current price: €<%= flat.price %> per night</p>
+      </div>
+    </div>
+  </div>
+</div>
