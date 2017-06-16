@@ -1,17 +1,18 @@
+<% content_for :title, "Become a host" %>
 
-<div class="wrapper" ></div>
+<div class="wrapper-host" style="margin-top: 80px;">
 <div class="container" style="margin-top: 30px; margin-bottom: 50px;">
   <div class="col-xs-12 col-sm-6 col-sm-offset-3">
     <h1 class="text-center">Create New Flat</h1>
 
 <%= simple_form_for @flat do |f| %>
-<%= f.input :title %>
-<%= f.input :price %>
-<%= f.input :description %>
-<%= f.input :address %>
-<%= f.input :bedrooms, collection: 1..10, selected: 1 %>
-<%= f.input :capacity, collection: 1..10, selected: 1 %>
-<%= f.input :category, collection: ["Entire home", "Private room", "Shared room"], selected: "Private room" %>
+<%= f.input :title, required: false %>
+<%= f.input :price, required: false %>
+<%= f.input :description, required: false %>
+<%= f.input :address, required: false %>
+<%= f.input :bedrooms, collection: 1..10, selected: 1, required: false %>
+<%= f.input :capacity, collection: 1..10, selected: 1, required: false %>
+<%= f.input :category, collection: ["Entire home", "Private room", "Shared room"], selected: "Private room", required: false %>
 <%= f.input :photo, as: :attachinary %>
 <%= f.submit "Add flat" %>
 
@@ -19,4 +20,5 @@
 
 
   </div>
+</div>
 </div>
