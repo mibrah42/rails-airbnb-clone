@@ -12,44 +12,44 @@ User.destroy_all
 
 puts "Starting seeding process..."
 
-# 10.times do
-#   user = User.new(
-#     first_name: Faker::Name.first_name ,
-#     last_name: Faker::Name.last_name,
-#     email: Faker::Internet.free_email,
-#     password: "1234567890"
-#   )
-#   user.save!
+10.times do
+  user = User.new(
+    first_name: Faker::Name.first_name ,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.free_email,
+    password: "1234567890"
+  )
+  user.save!
 
 
-#   rand(0..3).times do
-#     url = "http://lorempixel.com/1600/600/city/" + rand(1..10).to_s
-#     title_array = CATCH.sample + KIND.sample + EXTRAS.sample
-#     flat = Flat.new(
-#       price: rand(50..1500),
-#       title: CATCH.sample + KIND.sample + EXTRAS.sample,
-#       description: Faker::Lorem.paragraph(rand(1..2)),
-#       address: ADDRESS_EXAMPLES.sample,
-#       bedrooms: rand(1..5),
-#       capacity: rand(1..10),
-#       category: ["Entire home", "Private room", "Shared room"].sample
-#       )
-#     flat.user = user
-#     flat.save!
-#     flat.photo_url = url
+  rand(0..3).times do
+    url = "http://lorempixel.com/1600/600/city/" + rand(1..10).to_s
+    title_array = CATCH.sample + KIND.sample + EXTRAS.sample
+    flat = Flat.new(
+      price: rand(50..1500),
+      title: CATCH.sample + KIND.sample + EXTRAS.sample,
+      description: Faker::Lorem.paragraph(rand(1..2)),
+      address: ADDRESS_EXAMPLES.sample,
+      bedrooms: rand(1..5),
+      capacity: rand(1..10),
+      category: ["Entire home", "Private room", "Shared room"].sample
+      )
+    flat.user = user
+    flat.save!
+    flat.photo_url = url
 
-#     start_date = Date.new + rand(1..100)
-#     end_date = start_date + rand(1..30)
+    start_date = Date.new + rand(1..100)
+    end_date = start_date + rand(1..30)
 
-#     booking = Booking.new(
-#       start_date: start_date,
-#       end_date: end_date,
-#       guests: rand(1..5)
-#     )
-#     booking.user = user
-#     booking.flat = flat
-#     booking.save!
-#   end
-# end
+    booking = Booking.new(
+      start_date: start_date,
+      end_date: end_date,
+      guests: rand(1..5)
+    )
+    booking.user = user
+    booking.flat = flat
+    booking.save!
+  end
+end
 
 puts "Finished seeding process..."

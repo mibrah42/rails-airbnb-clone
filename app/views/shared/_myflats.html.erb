@@ -1,29 +1,44 @@
 <div class="wrapper">
   <div class="container">
     <div class="row">
-    <div class="col-xs-12">
-      <ul class="list-unstyled" >
+      <div class="col-xs-12 ">
         <h1>My flats</h1>
         <hr>
         <% @flats.each do |flat| %>
-        <li>
+        <div class="myflat">
+          <div class="image">
+            <%= cl_image_tag(flat.photo.path, width: 200, class:"product-image hidden-xs")%>
+          </div>
           <div class="info">
-           <p> <%= flat.title %></p>
-           <p> <%= flat.price %></p>
-           <p> <%= flat.address %></p>
-           <p> <%= flat.description %></p>
-         </div>
-         <div class="extra">
-           <p> <%= flat.bedrooms %></p>
-           <p> <%= flat.capacity %></p>
-           <p> <%= flat.category %></p>
-         </div>
-       </li>
-       <%= link_to "See this flat", flat_path(flat), class:"btn btn-primary"  %>
+            <p> Flat title: <strong><%= flat.title %></strong></p>
+            <p> Flat price: <strong>€<%= flat.price %></strong></p>
+            <p> Flat address: <strong><%= flat.address %></strong></p>
+          </div>
+
+          <div class="myflat-extra-info">
+            <div class="icon text-center">
+            <%= render "shared/modul-category-flat", flat: flat %>
+            </div>
+            <div class="icon text-center">
+             <%= render "shared/modul-capacity-flat", flat: flat %>
+            </div>
+            <div class="icon text-center">
+             <%= render "shared/modul-bedrooms-flat", flat: flat %>
+            </div>
+            <div class="icon text-center">
+            <%= render "shared/modul-price-flat", flat: flat %>
+            </div>
+          </div>
+
+          <div class="link-to-see-flat">
+         <%= link_to "See this flat", flat_path(flat), class:"btn btn-danger btn-sm"  %>
+       </div>
+       </div>
        <hr>
        <% end %>
-     </ul>
      </div>
    </div>
  </div>
 </div>
+
+

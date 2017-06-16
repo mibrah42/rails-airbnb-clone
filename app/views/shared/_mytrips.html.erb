@@ -9,7 +9,9 @@
          <div class="product">
           <%= cl_image_tag(book.flat.photo.path, width: 200, class:"product-image hidden-xs")%>
           <div class='product-body'>
-            <h3>You booked: <%= book.flat.title  %> </h3>
+            <h3 >You booked: <%= link_to book.flat.title, flat_path(book.flat), class:"title-link" %>
+            </h3>
+
             <p>At <%= book.flat.address %></p>
             <p>From <%= book.start_date %> to <%= book.end_date %> </p>
             <p>Booking status: <%= book.status %></p>

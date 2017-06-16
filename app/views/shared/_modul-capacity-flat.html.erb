@@ -1,0 +1,19 @@
+
+<%= link_to '#SignInModal1', "data-toggle" => "modal"  do %>
+<i class="fa fa-users" aria-hidden="true"></i>
+<p><%= flat.capacity %> </p>
+<% end %>
+
+<div class="modal fade" id="SignInModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel">This is the capacity of your flat</h3>
+      </div>
+      <div class="modal-body text-center">
+        <p>This is the amount of people that can stay in your flat</p>
+        <p>Current capacity: <%= flat.capacity %></p>
+      </div>
+    </div>
+  </div>
+</div>

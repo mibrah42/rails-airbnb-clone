@@ -1,1 +1,28 @@
+.dashboard-page hr {
+  border-color: #00A699;
+}
+
+.title-link {
+  color: #00A699;
+}
+
+.myflat {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border-radius: 3px;
+  transition: all 0.15s ease;
+}
+.myflat-extra-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.icon {
+  padding-left: 20px;
+  width: 80px;
+
+}
 

@@ -1,0 +1,19 @@
+
+<%= link_to '#SignInModal', "data-toggle" => "modal"  do %>
+<i class="fa fa-bed" aria-hidden="true"></i>
+<p><%= flat.bedrooms %> </p>
+<% end %>
+
+<div class="modal fade" id="SignInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+ <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel">Bedrooms</h3>
+      </div>
+      <div class="modal-body text-center">
+        <p>This is the amount of bedrooms your flat has</p>
+        <p>Current bedrooms: <%= flat.bedrooms %></p>
+      </div>
+    </div>
+  </div>
+</div>

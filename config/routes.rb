@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # redirect to landing page
   root to: 'flats#index'
   get '/pages/dashboard', to: 'pages#dashboard'
+  get '/pages/modul-edit-flat', to: 'pages#modul-edit-flat'
   # patch '/flats/:flat_id/bookings/:id', to: 'bookings#update_confirm', as: :booking_update_confirmed
 
   get "/flats/search", to: "flats#search"

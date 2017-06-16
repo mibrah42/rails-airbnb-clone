@@ -1,15 +1,17 @@
+
 <div class="wrapper">
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
 
         <h1>My bookings</h1>
-        <hr style="border-color: #FF5A5F;">
+        <hr>
         <div class="my-bookings">
           <ul class="list-unstyled">
 
             <% @bookings.each do |book|  %>
             <% if @flats_array.include?(book.flat_id) %>
+
             <div class="product">
               <div class="image">
                 <p> <strong> <%= book.flat.title %> </strong> </p>
@@ -21,37 +23,24 @@
                 <p>Number of guest: <%= book.guests %></p>
                 <p>Status: <%= book.status %></p>
               </div>
-
               <% if book.status == 'pending' %>
-              <%= form_tag flat_booking_path(flat_id: book.flat.id, id: book.id), method: :patch do %>
-              <button type="submit" name="status" value="confirm" class="btn btn-success">
-                Confirm
-              </button>
-              <button type="submit" name="status" value="denied" class= "btn btn-danger">
-                Deny
-              </button>
-              <% end %>
+              <%= button_to "Confirm", flat_booking_path(flat_id: book.flat.id, id: book.id), method: :patch , class: 'confirm-btn btn btn-success', remote: true,id: 'pending_button' , params:{status: "confirm"} %>
+
+              <%= button_to "Deny", flat_booking_path(flat_id: book.flat.id, id: book.id), method: :patch , class: 'deny-btn btn btn-danger', remote: true,id: 'denied_button' , params:{status: "denied"} %>
 
               <% elsif book.status == 'confirmed' %>
-              <%= form_tag flat_booking_path(flat_id: book.flat.id, id: book.id), method: :patch do %>
-              <button type="submit" name="status" value="denied" class="btn btn-danger">
-                Deny
-              </button>
-              <% end %>
+              <%= button_to "Deny", flat_booking_path(flat_id: book.flat.id, id: book.id), method: :patch , class: 'deny-btn btn btn-danger', remote: true,id: 'denied_button' , params:{status: "denied"} %>
+
 
               <% elsif book.status == 'denied' %>
-              <%= form_tag flat_booking_path(flat_id: book.flat.id, id: book.id), method: :patch do %>
-              <button type="submit" name="status" value="pending" class="btn btn-success">
-                Pending
-              </button>
-              <% end %>
+              <%= button_to "Pending", flat_booking_path(flat_id: book.flat.id, id: book.id), method: :patch , class: 'deny-btn btn btn-success', remote: true,id: 'confirm_button' , params:{status: "pending"} %>
+
               <% end %>
             </div>
             <hr>
+            <% end %>
+            <% end %>
 
-            <% end %>
-            <% end %>
-            <%# end %>
           </ul>
         </div>
       </div>
@@ -60,5 +49,29 @@
 </div>
 
 
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+   // $(".confirm-btn").click(function(e){
+   //   e.preventDefault();
+   //   var booking = $(this).attr("booking_id")
+   //   var flat = $(this).attr("flat_id")
+   //   alert('aloha');
+   //   $.ajax({
+   //   type: "POST",
+    //  url: "",
+    //  data: $.this.val(),
+    //  success: function(data){
+
+   //   },
+   //   error: function(jqXHR) {
+   //               console.error(jqXHR.responseText);
+   //           }
+   //   })
+   // })
 
 
+
+
+
+  <% end %>
+<% end %>
