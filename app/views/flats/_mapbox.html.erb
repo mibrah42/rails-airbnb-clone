@@ -1,0 +1,16 @@
+<div class="mapmarkerinfo">
+  <%= link_to flat_path(flat) do %>
+  <div>
+    <div class="card-img" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= cl_image_path flat.photo.path %>'); width: 200px; height: 100px">
+    </div>
+    <div>
+      <p class="karla-bold">€<%= flat.price %> <%= truncate(flat.title,length: 20) %></p>
+      <p class="karla-light"><%= flat.category %> - <%= flat.bedrooms %> beds</p>
+      <% 5.times do %>
+      <i class="fa fa-star star" aria-hidden="true"></i>
+      <% end %>
+      <span style="color: black; font-size: 12px;">  <%= pluralize flat.reviews.size, "review" %> </span>
+    </div>
+  </div>
+  <% end %>
+</div>
