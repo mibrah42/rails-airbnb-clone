@@ -18,7 +18,8 @@ class FlatsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@flats) do |flat, marker|
       marker.lat flat.latitude
       marker.lng flat.longitude
-      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+      marker.label flat.price
+      marker.infowindow render_to_string(partial: "/flats/mapbox", locals: { flat: flat })
     end
   end
 
@@ -30,7 +31,7 @@ class FlatsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@flats) do |flat, marker|
       marker.lat flat.latitude
       marker.lng flat.longitude
-      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+      marker.infowindow render_to_string(partial: "/flats/mapbox", locals: { flat: flat })
     end
   end
 
