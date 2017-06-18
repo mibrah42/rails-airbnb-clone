@@ -7,15 +7,33 @@
 
 
   <!-- left navigation -->
-  <div class="logo_search">
+  <div class="logo_search ">
 
     <!-- Logo -->
     <a href="/" class="navbar-wagon-brand">
       <img src="https://s-media-cache-ak0.pinimg.com/originals/92/bf/b7/92bfb777f072d29e4c09b6feca4e487c.png" />
     </a>
 
+
+
     <!-- Search form -->
+    <div class="hidden-xs">
     <%= render "helpers/search-navbar" %>
+    </div>
+
+
+
+<%#= content_for(:after_js) do %>
+<!-- <script>
+  document.getElementById('header').addEventListener('click', function(e) {
+  document.getElementById('menu').className = 'open';
+});
+
+document.getElementById('menu').addEventListener('click', function(e) {
+  document.getElementById('menu').className = 'close';
+});
+</script>
+<%# end %> -->
 
   </div>
 
@@ -106,8 +124,8 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><%= link_to "Home", flats_path  %></li>
-        <li><%= link_to "Dashboard", pages_dashboard_path  %></li>
+       <!--  <li><%#= link_to "Home", flats_path  %></li>
+        <li><%#= link_to "Dashboard", pages_dashboard_path  %></li> -->
         <li><%= link_to "Become a host", new_flat_path %></li>
         <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
       </ul>
@@ -118,7 +136,7 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><%= link_to "Home", flats_path  %></li>
+       <!--  <li><%#= link_to "Home", flats_path  %></li> -->
         <li><%= link_to "Log in", new_user_session_path %></li>
         <li><%= link_to "Sign up", new_user_registration_path %></li>
       </ul>
@@ -128,4 +146,85 @@
 <% end %>
 
 </div>
+
+
+
+
+<!-- ------------------------------------------------- -->
+
+<div class="navbar-wagon navbar-fixed-bottom hidden-sm hidden-md hidden-lg">
+  <!-- Logo -->
+  <%= link_to root_path do %>
+    <i class="fa fa-home" style="font-size: 30px; margin-left: 100px; color: black;"></i>
+  <% end %>
+
+  <%= link_to pages_dashboard_path do %>
+    <i class="fa fa-tasks" style="font-size: 30px; margin-right: 100px; color: black;"></i>
+  <% end %>
+
+
+
+
+  <!-- Right Navigation -->
+  <div class="navbar-wagon-right hidden-xs hidden-sm">
+
+    <!-- Search form -->
+    <form action="" class="navbar-wagon-search">
+      <input type="text" class="navbar-wagon-search-input" placeholder="Search something">
+      <button type="submit" class="navbar-wagon-search-btn">
+        <i class="fa fa-search"></i>
+      </button>
+    </form>
+
+    <!-- Different navigation if login or not -->
+    <% if user_signed_in? %>
+
+      <!-- Notification -->
+      <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
+        <div class="badge-container">
+          <i class="fa fa-envelope-o"></i>
+          <div class="badge badge-blue">3</div>
+        </div>
+      <% end %>
+
+      <!-- Profile picture and dropdown -->
+      <div class="navbar-wagon-item">
+        <div class="dropdown">
+          <%= image_tag "http://placehold.it/30x30", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li>
+              <%= link_to "#" do %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to "#" do %>
+                <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    <% else %>
+
+      <!-- Login text link -->
+      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <% end %>
+
+    <!-- Button (call-to-action) -->
+    <%= link_to t(".top_call_to_action", default: "Post stuff"), "#", class: "navbar-wagon-item navbar-wagon-button btn" %>
+  </div>
+
+  <!-- Dropdown list appearing on mobile only -->
+
+  </div>
+</div>
+
+
 
