@@ -1,7 +1,7 @@
 <div class="mapmarkerinfo">
   <%= link_to flat_path(flat) do %>
   <div>
-    <div class="card-img" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= cl_image_path flat.photo.path %>'); width: 200px; height: 100px">
+    <div class="card-img" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= cl_image_path flat.photo.path if flat.photo? %>'); width: 200px; height: 100px">
     </div>
     <div>
       <p class="karla-bold">€<%= flat.price %> <%= truncate(flat.title,length: 20) %></p>
